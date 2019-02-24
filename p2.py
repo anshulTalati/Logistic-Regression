@@ -20,9 +20,6 @@ D = [(6.4432, 9.6309, 50.9155), (3.7861, 5.4681, 29.9852),\
 (4.2417, 8.0549, 38.8327), (5.0786, 5.7672, 34.4707) ]
 
 m = len(D)
-print m
-
-theta = []
 
 theta0 = 0.0
 theta1 = 1.0
@@ -36,8 +33,6 @@ def costOfRegression(t0, t1, t2):
 cost = costOfRegression(theta0,theta1,theta2)
 print "cost: ", cost 
 while (True):
-    
-
     temp0 = theta0 - alpha*(sum(theta0 + theta1*D[i][0] +theta2*D[i][1] - D[i][2] for i in range(m-1)) / m)
     temp1 = theta1 - alpha*(sum((theta0 + theta1*D[i][0] +theta2*D[i][1] - D[i][2])*D[i][0] for i in range(m-1)) / m)
     temp2 = theta2 - alpha*(sum((theta0 + theta1*D[i][0] +theta2*D[i][1] - D[i][2])*D[i][1] for i in range(m-1)) / m)
@@ -52,4 +47,8 @@ while (True):
     theta2 = temp2
 
 print theta0, theta1, theta2
-print "Error : ", costOfRegression(theta0, theta1, theta2) 
+
+
+# predy = theta0 +  theta1*D[1][0] + theta2* D[1][1]
+
+# print "Loss : ", (predy - 29.9852 )**2
